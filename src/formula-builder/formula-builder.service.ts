@@ -19,4 +19,10 @@ export class FormulaBuilderService {
         console.log(this.formulae)
         return true
     }
+
+    validateFormula (formula_builder_body) {
+        console.log(formula_builder_body)
+        const { formulae } = formula_builder_body
+        return formulae === 'formulae'
+    }
 }

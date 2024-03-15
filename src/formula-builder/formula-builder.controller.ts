@@ -22,14 +22,15 @@ export class FormulaBuilderController {
     }
     
     @Post('validate_formulae')
-    addUser(@Body() formula_builder_body: FormulaValidatorDto) {
+    validateFormula(@Body() formula_builder_body: FormulaValidatorDto) {
         try {
-            const validateFormulae = this.formula_builder.addFormula(formula_builder_body)
+            const validateFormulae = this.formula_builder.validateFormula(formula_builder_body)
     
+            console.log(validateFormulae, 'validateFormulae')
             if (validateFormulae) {
-                return `Your formulae passed the validation check`
+                return {message: `Your formulae passed the validation check`, success: true}
             }
-            return `Your formulae failed to pass the validation check`
+            return {message: `Your formulae didn't passed the validation check`, success: false}
         } catch (err) {
             console.log(err)
             return err
