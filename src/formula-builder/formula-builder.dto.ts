@@ -4,7 +4,8 @@ export class FormulaValidatorDto {
     @IsString()
     @MinLength(5)
     formulae: string;
-
+    
     @IsString()
     name: string;
+
 }
